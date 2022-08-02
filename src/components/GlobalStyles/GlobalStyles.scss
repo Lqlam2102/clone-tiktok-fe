@@ -1,11 +1,12 @@
 @import 'normalize.css';
 
 :root {
-    --primary: #333;
-
+    --primary: #f32c55;
+    --text-color: #333;
     //Default Layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
+    --black: #000;
 }
 
 * {
@@ -23,4 +24,16 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
+}
+
+button,
+input,
+[tabindex] {
+    border: none;
+    outline: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
 }
