@@ -23,9 +23,19 @@
     align-items: center;
 }
 
+.search,
+.search-result {
+    width: 361px;
+}
+.search-title {
+    font-style: 1.4rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    color: rgba(22, 24, 35, 0.5);
+}
+
 .search {
     position: relative;
-    width: 361px;
     height: 46px;
     padding: 0 0 0 16px;
     background-color: rgba(22, 24, 35, 0.06);
