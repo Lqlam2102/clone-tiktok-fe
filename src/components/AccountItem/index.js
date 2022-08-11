@@ -10,8 +10,8 @@ function AccountItem() {
         <div className={cx('wrapper')}>
             <img
                 className={cx('avatar')}
-                src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/ddcb57a7bcd8bf0fc01c18338b2caf59~c5_300x300.webp?x-expires=1659740400&x-signature=QMq6zN8og1teJUBu8SqlP5HJsNk%3D"
-                alt="Hoaa"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/ddcb57a7bcd8bf0fc01c18338b2caf59.jpeg?x-expires=1660302000&x-signature=%2F%2BcpUP1KsOscQj3fZLpcHIxIQqE%3D"
+                alt="Avatar"
             />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
