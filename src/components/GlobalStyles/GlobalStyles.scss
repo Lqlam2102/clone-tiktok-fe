@@ -3,11 +3,12 @@
 :root {
     --primary: #f32c55;
     --text-color: #333;
+    --white: #fff;
+    --black: #000;
     //Default Layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
-    --white: #fff;
-    --black: #000;
+    --default-layout-horizontal-spacer: 24px;
 }
 
 * {
