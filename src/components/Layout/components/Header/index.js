@@ -1,19 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
-    faEllipsisVertical,
-    faEarthAsia,
-    faCircleQuestion,
-    faKeyboard,
-    faCloudUpload,
-    faCoins,
-    faGear,
-    faUser,
-    faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faEllipsisVertical, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import { useEffect, useState } from 'react';
@@ -25,12 +12,24 @@ import images from '~/assets/image';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Wrapper/Menu';
-// import { faUser } from '@fortawesome/free-regular-svg-icons';
+import {
+    CoinsIcon,
+    InboxIcon,
+    KeyboardIcon,
+    LanguageIcon,
+    MessageIcon,
+    QuestionIcon,
+    SearchIcon,
+    SettingIcon,
+    UploadIcon,
+    UserIcon,
+} from '~/components/icons';
+import Imgae from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        icon: <LanguageIcon />,
         title: 'English',
         children: {
             title: 'Language',
@@ -49,29 +48,29 @@ const MENU_ITEMS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <QuestionIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <KeyboardIcon />,
         title: 'Keyboard shortcuts',
     },
 ];
 
 const userMenu = [
     {
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <UserIcon />,
         title: 'View profile',
         to: '@hoaa',
     },
     {
-        icon: <FontAwesomeIcon icon={faCoins} />,
+        icon: <CoinsIcon />,
         title: 'Get coins',
         to: '/coin',
     },
     {
-        icon: <FontAwesomeIcon icon={faGear} />,
+        icon: <SettingIcon />,
         title: 'Settings',
         to: '/settings',
     },
@@ -131,16 +130,26 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                         <button className={cx('search-btn')}>
                             {/* Search */}
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy content="Upload videos" placement="bottom" delay={[0, 200]}>
+                            <Tippy content="Upload videos" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy content="Notifications" placement="bottom">
+                                <button className={cx('actions-btn')}>
+                                    <MessageIcon className={cx('icon-notifications')} />
+                                </button>
+                            </Tippy>
+                            <Tippy content="Messages" placement="bottom">
+                                <button className={cx('actions-btn')}>
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -152,7 +161,7 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Imgae
                                 className={cx('user-avatar')}
                                 src="https://haycafe.vn/wp-content/uploads/2021/11/Anh-avatar-dep-chat-lam-hinh-dai-dien.jpg"
                                 alt="Nguyen Van A"

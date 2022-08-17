@@ -100,11 +100,16 @@
 }
 
 .actions-btn {
+    display: flex;
+    align-items: center;
     font-size: 2.2rem;
     color: #161823;
     background-color: transparent;
     padding: 4px 12px;
     cursor: pointer;
+    .icon-notifications {
+        padding: 0.4rem;
+    }
 }
 
 .more-btn {
