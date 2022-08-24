@@ -1,13 +1,16 @@
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames/bind';
+import { useState, useEffect, useRef } from 'react';
+
 import { Wrapper as PopperWrapper } from '~/components/Wrapper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames/bind';
-import styles from './Search.module.scss';
-import { useState, useEffect, useRef } from 'react';
 import { useDebounce } from '~/hooks';
+import styles from './Search.module.scss';
+
+import * as searchServices from '~/apiServices/searchServices';
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -26,17 +29,45 @@ function Search() {
             return;
         }
         setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-            .then((results) => {
-                return results.json();
-            })
-            .then((results) => {
-                setSearchResults(results.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+
+        const fetchApi = async () => {
+            setLoading(true);
+
+            const result = await searchServices.search(debounce);
+
+            setSearchResults(result);
+            setLoading(false);
+        };
+        fetchApi();
+
+        //TODO: Way axios
+        // request
+        //     .get('users/search', {
+        //         params: {
+        //             q: debounce,
+        //             type: 'less',
+        //         },
+        //     })
+        //     .then((results) => {
+        //         setSearchResults(results.data);
+        //         setLoading(false);
+        //     })
+        //     .catch(() => {
+        //         setLoading(false);
+        //     });
+
+        // TODO: way fetch
+        // fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
+        //     .then((results) => {
+        //         return results.json();
+        //     })
+        //     .then((results) => {
+        //         setSearchResults(results.data);
+        //         setLoading(false);
+        //     })
+        //     .catch(() => {
+        //         setLoading(false);
+        //     });
     }, [debounce]);
 
     const handleClear = () => {
