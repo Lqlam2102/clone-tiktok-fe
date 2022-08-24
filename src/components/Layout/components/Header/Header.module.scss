@@ -23,6 +23,9 @@
     display: flex;
     align-items: center;
 }
+.logo-icon {
+    display: flex;
+}
 
 //Action
 .actions {
@@ -31,6 +34,7 @@
 }
 
 .actions-btn {
+    position: relative;
     display: flex;
     align-items: center;
     font-size: 2.2rem;
@@ -41,6 +45,21 @@
     .icon-notifications {
         padding: 0.4rem;
     }
+}
+
+.badge {
+    position: absolute;
+    top: -3px;
+    right: 0px;
+    padding: 0px 6px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    font-family: var(--font-family);
+    background-color: var(--primary);
 }
 
 .more-btn {

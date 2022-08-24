@@ -78,6 +78,16 @@ function Search() {
     const handleHideResults = () => {
         setShowResults(false);
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+    const handleChangeSearchValue = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(e.target.value);
+        }
+    };
     return (
         <HeadlessTippy
             interactive
@@ -101,12 +111,7 @@ function Search() {
                     placeholder="Search accounts and videos "
                     spellCheck={false}
                     value={searchValue}
-                    onChange={(e) => {
-                        if (searchValue.length === 0 && e.target.value === ' ') return;
-                        else {
-                            setSearchValue(e.target.value);
-                        }
-                    }}
+                    onChange={handleChangeSearchValue}
                     onFocus={(e) => {
                         setShowResults(true);
                     }}
@@ -118,7 +123,7 @@ function Search() {
                     </button>
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={handleSubmit}>
                     {/* Search */}
                     <SearchIcon />
                 </button>

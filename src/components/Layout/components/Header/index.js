@@ -21,6 +21,8 @@ import {
 } from '~/components/icons';
 import Imgae from '~/components/Image';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -95,7 +97,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="TikTok" />
+                    <Link to={routes.home} className={cx('logo-icon')}>
+                        <img src={images.logo} alt="TikTok" />
+                    </Link>
                 </div>
                 <Search />
                 <div className={cx('actions')}>
@@ -114,6 +118,7 @@ function Header() {
                             <Tippy content="Messages" placement="bottom">
                                 <button className={cx('actions-btn')}>
                                     <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
