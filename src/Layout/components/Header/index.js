@@ -22,7 +22,7 @@ import {
 import Imgae from '~/components/Image';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -97,7 +97,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routes.home} className={cx('logo-icon')}>
+                    <Link to={config.routes.home} className={cx('logo-icon')}>
                         <img src={images.logo} alt="TikTok" />
                     </Link>
                 </div>
