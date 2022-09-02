@@ -40,7 +40,7 @@
 
 .rounded {
     border-radius: 9999px;
-    color: rgba(22, 24, 35, 0.75);
+    color: rgba(22, 24, 35, 0.75) !important;
     border-color: rgba(22, 24, 35, 0.12);
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
@@ -48,7 +48,7 @@
 }
 
 .primary {
-    color: var(--white);
+    color: var(--white) !important;
     background-color: var(--primary);
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
@@ -56,7 +56,7 @@
 }
 
 .outline {
-    color: var(--primary);
+    color: var(--primary) !important;
     border-color: var(--primary);
     &:hover {
         background-color: rgba(254, 44, 85, 0.16);
